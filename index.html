@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Syed Abdul Kareem Ahmed - Portfolio</title>
+    <h1>Syed Abdul Kareem Ahmed's Portfolio</h1>
     <!-- Add CSS for animations, styles, and background -->
     <style>
         /* General reset and styling */
@@ -26,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* Particle background */
+       /* Particle background */
         body::before {
             content: '';
             position: absolute;
@@ -47,87 +48,148 @@
             z-index: -1;
         }
 
+        /* Header Section */
         header {
-            background-color: transparent;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0)); /* Gradient background */
             color: #fff;
-            padding: 20px 0;
+            padding: 30px 0; /* More padding for a spacious look */
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+            position: relative;
+            z-index: 1;
+            transition: background 0.5s ease-in-out; /* Smooth background transition */
         }
 
         header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             letter-spacing: 2px;
             margin-bottom: 10px;
             color: #f9f9f9;
-            text-shadow: 2px 2px 10px #000;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.6); /* Softer shadow */
+            transition: text-shadow 0.3s ease-in-out;
         }
 
+        /* Navigation Bar */
         nav ul {
             display: flex;
             justify-content: center;
-            margin: 10px 0;
+            margin: 15px 0;
+            padding: 0;
         }
 
         nav ul li {
             list-style: none;
-            margin: 0 15px;
+            margin: 0 20px;
+            display: block;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em;
-            transition: color 0.3s, transform 0.3s;
+            font-size: 1.5em;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
         }
 
         nav ul li a:hover {
-            color: #61dafb;
-            transform: scale(1.1);
+            color: #61dafb; /* Change the hover color */
+            transform: scale(1.2); /* Slightly scale on hover */
+            text-shadow: 0 0 10px #61dafb; /* Add glowing effect on hover */
         }
 
-        .intro-section {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .intro-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .intro-section p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        /* Scroll Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* For smaller screens, adjust font sizes */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em; /* Smaller heading on mobile */
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            nav ul li a {
+                font-size: 1.2em; /* Smaller navigation font on mobile */
             }
         }
+    /* Updated Intro Section Styling */
+    .intro-section {
+        text-align: center;
+        padding: 50px 20px;
+        background: linear-gradient(135deg, rgba(0, 187, 255, 0.209), rgba(0, 0, 128, 0.7));
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        opacity: 1; /* Ensure it's visible on load */
+        animation: fadeInOnce 2s ease-in-out; /* Fade-in on page load */
+    }
 
-        .scroll-reveal {
+    .intro-section h2 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .intro-section p {
+        font-size: 1.5em;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Initial page load fade-in */
+    @keyframes fadeInOnce {
+        from {
             opacity: 0;
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
             transform: translateY(30px);
         }
-
-        .scroll-reveal.visible {
+        to {
             opacity: 1;
             transform: translateY(0);
         }
+    }
+
+    /* Scroll Reveal */
+    @keyframes slideIn {
+        0% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .scroll-reveal {
+        opacity: 0;
+        transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        transform: translateY(50px);
+    }
+
+    .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Button Styling */
+    .intro-section a {
+        display: inline-block;
+        padding: 12px 25px;
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #fff;
+        background-color: #61dafb;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 5px 15px rgba(97, 218, 251, 0.3); /* Add a glow effect */
+    }
+
+    .intro-section a:hover {
+        background-color: #00aaff;
+        transform: scale(1.05); /* Slight scale-up on hover */
+        box-shadow: 0 8px 20px rgba(0, 170, 255, 0.5); /* Stronger shadow on hover */
+    }
 
         /* Info Boxes */
         .info-boxes {
@@ -278,10 +340,69 @@
             padding: 15px;
             text-align: center;
         }
+        .skills-section {
+        /*background: url('skills-background.jpg') no-repeat center center/cover;*/
+        padding: 50px;
+        color: white;
+        text-align: center;
+        }
+        .skills-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .skill {
+            background-color: rgba(184, 203, 221, 0.154);
+            border-radius: 25px;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            background-color: #22cbff6d;
+        }
+
+        .experience-section {
+            padding: 50px;
+            background-color: #2d3436;
+            color: #ffffff;
+            text-align: center;
+        }
+        .experience-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.2em;
+        }
+        .experience-item {
+            background-color: rgba(4, 0, 255, 0.071);
+            border-left: 5px solid #ff5722;
+            margin: 20px;
+            padding: 20px;
+            width: 80%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: left;
+        }
     </style>
 </head>
 <body>
-
     <div class="particles"></div> <!-- Particle background -->
     <div id="tsparticles"></div>
     <!-- Header Section -->
@@ -296,50 +417,140 @@
             </ul>
         </nav>
     </header>
-
+    
     <!-- Introduction Section -->
     <section class="intro-section scroll-reveal">
         <h2>Welcome to My Portfolio</h2>
-        <p>I'm Syed Abdul Kareem Ahmed, a Computer Science Engineer specializing in Artificial Intelligence and Machine Learning. Explore my work and insights in the world of AI, ML, and DL.</p>
+        <p>I'm a Computer Science Engineer specializing in Artificial Intelligence and Machine Learning. Explore my work and insights in the world of AI, ML, and DL.</p>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section scroll-reveal">
+        <h2>My Skills</h2>
+        <div class="skills-list">
+            <span class="skill">Python</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">Artificial Intelligence</span>
+            <span class="skill">Natural Language processing</span>
+            <span class="skill">Data Analytics</span>
+            <span class="skill">Exploratory Data analysis</span>
+            <span class="skill">TensorFlow</span>
+            <span class="skill">Matplotlib</span>
+            <span class="skill">PyTorch</span>
+            <span class="skill">Streamlit</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">JupyterNotebook</span>
+            <span class="skill">VS Code</span>
+            <span class="skill">Google colab</span>
+            <span class="skill">Java</span>
+            <span class="skill">Neural Networks</span>
+            <span class="skill">Model Deployment</span>
+            <span class="skill">Big Data Analytics</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">Web hosting</span>
+            <span class="skill">Deep Learning</span>
+            <span class="skill">Data Structures & Algorithms</span>
+            <span class="skill">Computer Vision</span>
+            <span class="skill">TensorFlow</span>
+            <span class="skill">Keras</span>
+            <span class="skill">Pandas</span>
+            <span class="skill">Scikit-learn</span>
+            <span class="skill">Git</span>
+            <span class="skill">Flask</span>
+        </div>
     </section>
 
     <!-- Info Boxes Section -->
     <div class="info-boxes scroll-reveal">
+        <h2>Trends</h2>
         <div class="info-box">
-            <img src="robotics.jpg" alt="Robotics Image"> <!-- Relevant Image -->
-            <h3>Robotics & AI</h3>
-            <p>Explore how AI and robotics are shaping the future of automation and intelligent systems.</p>
+            <img src="robotics.jpg" alt="Robotics Image"> 
+            <h3><a href="https://en.wikipedia.org/wiki/Robotics" target="_blank">Robotics and AI</a></h3>
+            <p>Explore how <a href="https://www.weforum.org/focus/robotics" target="_blank">AI and Robotics</a> are shaping the future of automation and intelligent systems.</p>
         </div>
         <div class="info-box">
-            <img src="coding.jpg" alt="Coding Image"> <!-- Relevant Image -->
-            <h3>Machine Learning</h3>
-            <p>Dive into the world of machine learning, with a focus on deep learning models and data-driven insights.</p>
+            <img src="coding.jpg" alt="Coding Image">
+            <h3><a href="https://www.ibm.com/cloud/learn/machine-learning" target="_blank">Machine Learning</a></h3>
+            <p>Dive into the world of <a href="https://developers.google.com/machine-learning" target="_blank">machine learning</a>, with a focus on deep learning models and data-driven insights.</p>
         </div>
         <div class="info-box">
-            <img src="future-tech.png" alt="Future Tech Image"> <!-- Relevant Image -->
-            <h3>Future of AI</h3>
-            <p>Learn about the latest trends and advancements in AI, including GPT models, autonomous vehicles, and more.</p>
-        </div>
+            <img src="future-tech.png" alt="Future Tech Image">
+            <h3><a href="https://www.gartner.com/en/information-technology/glossary/artificial-intelligence" target="_blank">Future of AI</a></h3>
+            <p>Learn about the latest trends and advancements in AI, including <a href="https://openai.com/research/gpt" target="_blank">GPT models</a>, autonomous vehicles, and more.</p>
+        </div>        
     </div>
 
-    <!-- Projects Section -->
+        <!-- Projects Section -->
     <section id="projects" class="project-section scroll-reveal">
-        <h2>Projects</h2>
+        <h2>My Projects</h2>
         <div class="project-cards">
             <div class="project-card">
+                <img src="aero-gesture.png" alt="Aero-Gesture Project">
+                <h3>Aero-Gesture</h3>
+                <p>Eye Gesture controlled virtual mouse cursor. A hands-free computer vision application for physically challenged users. OpenCV, PyQt5, Dlib for facial landmarks detection.Inverted video feed by 180 degrees to correct reversed captures and enhance control.
+                    Enhanced illumination, increasing image brightness by 20% for improved input visibility.</p>
+                    <h3><a href="https://www.github.com/92kareeem/AeroGesture" target="_blank">GitHub</a></h3>
+
+            </div>
+        <div class="project-card">
+            <img src="colorize.png" alt="ColorizeAI Deep learning project">
+            <h3>ColorizeAI Project</h3>
+            <p>AI-powered application that uses deep neural networks and PyTorch to automatically colorize black-and-white images, enhancing the visual appeal and nostalgia of historical photographs by 60% accuracy. Leveraged advanced deep learning techniques to achieve realistic colorization, successfully recreating memories and breathing new life into classic imagery.</p>
+            <h3><a href="https://www.github.com/92kareeem/ColorizeAI" target="_blank">GitHub</a></h3>
+
+        </div>
+            <div class="project-card">
                 <img src="water-quality.png" alt="Water Quality Project">
-                <h3>IBM CSRBOX Internship</h3>
-                <p>Worked on Water Quality Analysis using Python, XGBoost, and IBM WatsonML. Achieved 83% accuracy, optimized cloud infrastructure, and reduced handling time by 40%.</p>
+                <h3>Water Quality Analysis</h3>
+                <p>Designed a Machine Learning model to assess water safety for drinking and agriculture using 7 features (pH, Hardness,
+                    Solids, Chloramines, Sulphate, Conductivity, Organic Carbon, Trihalomethanes, Turbidity), achieving 83% accuracy. Initiated a Flask server to integrate with Watson Studio API, configured model on IBM Watson Studio</p>
+                    <h3><a href="https://www.github.com/92kareeem/Water-Potability-test" target="_blank">GitHub</a></h3>
+
             </div>
             <div class="project-card">
-                <img src="ml-project.png" alt="Machine Learning Project">
-                <h3>NeuroNexus Innovations Internship</h3>
-                <p>Data Science Intern working on machine learning solutions and statistical modeling for advanced AI research.</p>
+                <img src="heart-disease.jpg" alt="Bayesian Network Project">
+                <h3>Heart Disease Diagnosis Using Bayesian Networks</h3>
+                <p>Built a custom dataset and implemented a Bayesian network to predict heart disease with medical data, achieving high accuracy and interpretability.</p>
+                <h3><a href="https://www.github.com/92kareeem/Advance-Machine-Learning/" target="_blank">GitHub</a></h3>
             </div>
-            <div class="project-card">
-                <img src="data-analytics.png" alt="Data Analytics Project">
-                <h3>Data Analytics Internship</h3>
-                <p>Analyzed restaurant data, performed city and price range analysis, reviewed ratings, and improved online delivery insights using Python and Pandas.</p>
+        </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section scroll-reveal">
+        <h2>Experience</h2>
+        <div class="experience-list">
+            <div class="experience-item">
+                <h3>AI Intern-Infosys Springboard  (Oct 2024-Current)</h3>
+
+                <p>Selected for an internship in AI. Completed courses in Data Science, NLP, AI, Deep Learning, and OpenAI GPT models.
+                     Excited to apply skills in real-world projects and collaborate with senior teams.</p>
+            </div>
+            <div class="experience-item">
+                <h3>AIML Intern - IBM CSRBOX Technologies (June 2024 – July 2024)</h3>
+
+                <p>Worked on Water Quality Analysis using Python, XGBoost, and IBM WatsonML. Achieved 83% accuracy and optimized cloud infrastructure.</p>
+            </div>            
+            <div class="experience-item">
+                <h3>Data Analytics Intern - Cognifyz Technologies (May 2024-Jun  2024)</h3>
+
+                <p>Performed data analysis on restaurant data, focusing on price range, city-based analysis, and customer reviews using Python and Pandas.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Data Science Intern - NeuroNexus Innovations (Mar 2024–Apr 2024)</h3>
+
+                <p>Developed machine learning models and worked on advanced AI solutions, contributing to multiple data science projects.</p>
+            </div>
+            <div class="experience-item">
+                <h3>AI Engineer Intern - CodeClause (Jan 2024-Feb 2024)</h3>
+
+                <p>Developed a comprehensive system for Emotion Detection that identifies facial emotions using OpenCV and Keras, Face Detection to recognize and match faces from a dataset, 
+                    and Personality Prediction leveraging machine learning and the Big Five Model to analyze individual personalities.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Python Developer Intern - Oasis Infobyte (Dec 2023)</h3>
+
+                <p>As a Python Developer Intern, I developed a Tkinter-based app for calculating and categorizing Body Mass Index, and a Random Password Generator, which creates strong, customizable passwords. 
+                    Both projects enhanced user experience through intuitive interfaces.</p>
             </div>
         </div>
     </section>
@@ -367,26 +578,34 @@
     <footer>
         <p>&copy; 2024 Syed Abdul Kareem Ahmed. All Rights Reserved.</p>
     </footer>
-
     <!-- Scroll Animation Script -->
     <script>
         // Scroll reveal effect
-        const revealElements = document.querySelectorAll('.scroll-reveal');
-        window.addEventListener('scroll', function() {
-            const windowHeight = window.innerHeight;
-            revealElements.forEach(function(el) {
-                const positionFromTop = el.getBoundingClientRect().top;
-                if (positionFromTop - windowHeight <= -150) {
-                    el.classList.add('visible');
-                }
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+    // Ensure intro section is always visible after the initial load
+    const introSection = document.querySelector('.intro-section');
+    introSection.style.opacity = '1';
+    introSection.style.transform = 'translateY(0)';
+
+    // Scroll reveal for other sections
+    document.addEventListener('scroll', function() {
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+        scrollElements.forEach((element) => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 150) {
+                element.classList.add('visible');
+            } else {
+                element.classList.remove('visible');
+            }
         });
-    </script>
-    <script>
+    });
+});
+
         tsParticles.load("tsparticles", {
             background: {
                 color: {
-                    value: "#00004d",  // Background color
+                    value: "#00002d",  // Background color
                 },
             },
             particles: {
@@ -401,7 +620,7 @@
                     value: "#ffffff", // Color of the particles
                 },
                 shape: {
-                    type: "circle", // Particle shape
+                    type: "star", // Particle shape
                 },
                 opacity: {
                     value: 0.5, // Opacity of particles
@@ -441,6 +660,25 @@
             retina_detect: true, // High-resolution support
         });
     </script>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = {
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric', 
+                    hour: 'numeric', 
+                    minute: 'numeric', 
+                    second: 'numeric', 
+                    hour12: true
+                };
+                const dateTimeString = now.toLocaleString('en-US', options);
+                document.getElementById('date-time').textContent = dateTimeString;
+            }
     
+            // Update the date and time every second
+            setInterval(updateDateTime, 1000);
+        </script>
 </body>
 </html>
